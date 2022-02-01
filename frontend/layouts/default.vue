@@ -1,24 +1,18 @@
 <template>
-  <div>
-    <Nav />
-    <div class="jumbotron"></div>
-    <nuxt />
-
-    <!-- <nui-sidebar /> -->
-    <div class="footer_wrap">
-      <nui-footer />
-    </div>
-  </div>
+  <v-app id="inspire">
+    <Navbar/>
+    <nuxt/>
+    <Footer/>
+  </v-app>
 </template>
 
 <script>
-import Nav from '@/components/Nav.vue'
-// import NuiHeader from '@/components/Header.vue'
-import NuiSidebar from '@/components/Sidevar.vue'
-import NuiFooter from '@/components/Footer.vue'
-
-export default {
-  components: { Nav, NuiSidebar, NuiFooter },
-
-}
+  import Navbar from '@/components/Navbar'
+  import Footer from '@/components/Footer'
+  export default {
+    components: {
+      Navbar,
+      Footer
+    }
+  }
 </script>

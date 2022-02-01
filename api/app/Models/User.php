@@ -6,10 +6,22 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Topic;
+use App\Post;
 
 class User extends Authenticatable implements JWTSubject
 {
   use Notifiable;
+
+  public function ownsTopic(Topic $topic)
+  {
+      return $this->id === $topic->user->id;
+  }
+
+  public function ownsPost(Post $post)
+  {
+      return $this->id === $post->user->id;
+  }
 
   /**
    * Get the identifier that will be stored in the subject claim of the JWT.

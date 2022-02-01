@@ -1,3 +1,3 @@
-export default function({store}) {
-    store.dispatch("vadlidation/clearErrors")
+export default function({ store }) {
+	store.dispatch("validation/clearErrors");
 }

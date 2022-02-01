@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use App\Models\User;
+use App\User;
 use App\Http\Requests\UserRegisterRequest;
 use App\Http\Requests\UserLoginRequest;
-use App\Http\Resources\User as UserResources;
+use App\Http\Resources\User as UserResource;
 
 
 class AuthController extends Controller
@@ -41,7 +41,7 @@ class AuthController extends Controller
             return abort(401);
         }
 
-        return (new UserResources($request->user()))->additional([
+        return (new UserResource($request->user()))->additional([
             'meta' => [
                 'token' => $token,
             ],
@@ -62,7 +62,7 @@ class AuthController extends Controller
             ], 422);
         }
 
-        return (new UserResources($request->user()))->additional([
+        return (new UserResource($request->user()))->additional([
             'meta' => [
                 'token' => $token,
             ],
@@ -75,7 +75,7 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function user(Request $request) {
-        return new UserResources($request->user());
+        return new UserResource($request->user());
     }
 
     /**
