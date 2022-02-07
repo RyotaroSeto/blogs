@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-buster
+FROM php:8.0-fpm
 
 # コンテナ内の環境変数
 ENV COMPOSER_ALLOW_SUPERUSER=1 \

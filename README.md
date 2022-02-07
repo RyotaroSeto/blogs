@@ -2,7 +2,7 @@
 
 ### PHP
 
-php:7.4-fpm-buster
+php:8.0-fpm
 
 ### nginx
 
